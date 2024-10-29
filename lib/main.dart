@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'pages/home_page.dart';
 
 void main() {
-  runApp(CyberSecurityApp());
+  runApp(const CyberSecurityApp());
 }
 
 class CyberSecurityApp extends StatelessWidget {
+  const CyberSecurityApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -13,7 +15,7 @@ class CyberSecurityApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(),
+      home: const HomePage(),
     );
   }
 }

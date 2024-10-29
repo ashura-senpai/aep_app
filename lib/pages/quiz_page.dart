@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import '../models/quiz_model.dart';
 
 class QuizPage extends StatefulWidget {
+  const QuizPage({super.key});
+
   @override
   _QuizPageState createState() => _QuizPageState();
 }
@@ -19,7 +21,8 @@ class _QuizPageState extends State<QuizPage> {
         "Fazer backup de dados"
       ],
       correctOptionIndex: 0,
-      explanation: "O phishing é uma técnica usada para enganar os usuários e roubar suas credenciais.",
+      explanation:
+          "O phishing é uma técnica usada para enganar os usuários e roubar suas credenciais.",
     ),
     QuizQuestion(
       question: "Qual medida ajuda a prevenir ataques de ransomware?",
@@ -30,13 +33,15 @@ class _QuizPageState extends State<QuizPage> {
         "Usar redes públicas"
       ],
       correctOptionIndex: 1,
-      explanation: "Manter backups regulares de dados é uma das formas mais eficazes de combater ransomware.",
+      explanation:
+          "Manter backups regulares de dados é uma das formas mais eficazes de combater ransomware.",
     ),
     // Adicionar mais perguntas conforme necessário
   ];
 
   void checkAnswer(int selectedOptionIndex) {
-    if (selectedOptionIndex == questions[currentQuestionIndex].correctOptionIndex) {
+    if (selectedOptionIndex ==
+        questions[currentQuestionIndex].correctOptionIndex) {
       score++;
     }
 
@@ -53,7 +58,7 @@ class _QuizPageState extends State<QuizPage> {
     showDialog(
       context: context,
       builder: (_) => AlertDialog(
-        title: Text('Resultado'),
+        title: const Text('Resultado'),
         content: Text('Você acertou $score de ${questions.length} perguntas.'),
         actions: [
           TextButton(
@@ -64,7 +69,7 @@ class _QuizPageState extends State<QuizPage> {
                 score = 0;
               });
             },
-            child: Text('Refazer Quiz'),
+            child: const Text('Refazer Quiz'),
           ),
         ],
       ),
@@ -75,7 +80,7 @@ class _QuizPageState extends State<QuizPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Quiz Interativo'),
+        title: const Text('Quiz Interativo'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -84,16 +89,17 @@ class _QuizPageState extends State<QuizPage> {
           children: [
             Text(
               questions[currentQuestionIndex].question,
-              style: TextStyle(fontSize: 18.0),
+              style: const TextStyle(fontSize: 18.0),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ...questions[currentQuestionIndex].options.map((option) {
-              int index = questions[currentQuestionIndex].options.indexOf(option);
+              int index =
+                  questions[currentQuestionIndex].options.indexOf(option);
               return ElevatedButton(
                 onPressed: () => checkAnswer(index),
                 child: Text(option),
               );
-            }).toList(),
+            }),
           ],
         ),
       ),

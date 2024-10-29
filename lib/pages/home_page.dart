@@ -3,11 +3,13 @@ import 'content_page.dart';
 import 'quiz_page.dart';
 
 class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Cyber Security App'),
+        title: const Text('Cyber Security App'),
       ),
       body: Center(
         child: Column(
@@ -17,19 +19,19 @@ class HomePage extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ContentPage()),
+                  MaterialPageRoute(builder: (context) => const ContentPage()),
                 );
               },
-              child: Text('Conteúdos sobre Segurança'),
+              child: const Text('Conteúdos sobre Segurança'),
             ),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => QuizPage()),
+                  MaterialPageRoute(builder: (context) => const QuizPage()),
                 );
               },
-              child: Text('Quiz Interativo'),
+              child: const Text('Quiz Interativo'),
             ),
           ],
         ),

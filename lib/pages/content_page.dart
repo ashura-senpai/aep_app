@@ -4,6 +4,8 @@ import 'dart:convert';
 import '../models/content_model.dart';
 
 class ContentPage extends StatefulWidget {
+  const ContentPage({super.key});
+
   @override
   _ContentPageState createState() => _ContentPageState();
 }
@@ -18,12 +20,14 @@ class _ContentPageState extends State<ContentPage> {
   }
 
   Future<void> fetchArticles() async {
-    final response = await http.get(Uri.parse('https://api-cyber-security.com/articles'));
-    
+    final response =
+        await http.get(Uri.parse('https://api-cyber-security.com/articles'));
+
     if (response.statusCode == 200) {
       List<dynamic> data = json.decode(response.body);
       setState(() {
-        articles = data.map((json) => CyberSecurityArticle.fromJson(json)).toList();
+        articles =
+            data.map((json) => CyberSecurityArticle.fromJson(json)).toList();
       });
     } else {
       throw Exception('Falha ao carregar artigos.');
@@ -34,10 +38,10 @@ class _ContentPageState extends State<ContentPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Artigos de Segurança Cibernética'),
+        title: const Text('Artigos de Segurança Cibernética'),
       ),
       body: articles.isEmpty
-          ? Center(child: CircularProgressIndicator())
+          ? const Center(child: CircularProgressIndicator())
           : ListView.builder(
               itemCount: articles.length,
               itemBuilder: (context, index) {
