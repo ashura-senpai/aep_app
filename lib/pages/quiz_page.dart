@@ -36,7 +36,6 @@ class _QuizPageState extends State<QuizPage> {
       explanation:
           "Manter backups regulares de dados é uma das formas mais eficazes de combater ransomware.",
     ),
-    // Adicionar mais perguntas conforme necessário
   ];
 
   void checkAnswer(int selectedOptionIndex) {
